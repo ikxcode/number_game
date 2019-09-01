@@ -1,4 +1,5 @@
 import random
+import time
 
 attempts = 0
 max_attempts = 5
@@ -7,7 +8,12 @@ number = random.randint(0, 100)
 correct = False
 
 while number != guess and attempts < max_attempts:
-    guess = int(input("guess: "))
+    rawInput = input("guess: ")
+    try:
+        guess = int(rawInput)
+    except:
+        print("EROOR")
+        continue
     attempts = attempts + 1
     if guess < number:
         print("too small")
@@ -18,5 +24,12 @@ while number != guess and attempts < max_attempts:
         print("right!")
 
 if not correct:
-    print("FAIL!")
+    print("F")
+    time.sleep(1)
+    print("A")
+    time.sleep(1)
+    print("I")
+    time.sleep(1)
+    print("L")
+    time.sleep(1)
     print("the correct number was " + str(number))
